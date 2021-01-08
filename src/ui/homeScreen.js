@@ -5,7 +5,7 @@ import { styles } from "../../stylesheets/appStyles.js";
 import DATA  from "../../data/dummyBoxData.js";
 
 const Item = ({ item, onPress, style, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate("boxNav", { itemId: item.id })} style={[styles.card, style]}>
+  <TouchableOpacity onPress={() => navigation.navigate("Box data", { itemId: item.id })} style={[styles.card, style]}>
     <Text style={styles.cardText}> {item.boxText} </Text>
   </TouchableOpacity>
 );
