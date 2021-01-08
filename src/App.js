@@ -1,24 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-// import { styles } from "../stylesheets/appStyles.js";
 
 const blueColor = '#10D5D6';
-
-function homeScreen({ navigation }) { 
-  return (
-    <View style={styles.container}>
-      <Button
-        title = 'Add box'
-        onPress={() => navigation.navigate('details')}
-      />
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -26,8 +12,39 @@ const styles = StyleSheet.create({
     backgroundColor: blueColor,
     justifyContent: "center",
     alignItems: "center"
+  },
+  textInput: {
+    width: '90%',
+    height: 50,
+    borderColor: 'black',
+    borderWidth: 2,
+  },
+  button: {
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10
+  },
+  buttonText: {
+    color: blueColor,
+    fontSize: 20,
+    fontWeight: "bold"
   }
 });
+
+const Stack = createStackNavigator();
+
+function homeScreen({ navigation }) { 
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('details')} style={styles.button}>
+        <Text style={styles.buttonText}>Add a box</Text>
+      </TouchableOpacity>
+      
+      <StatusBar style="auto" />
+    </View>
+  );
+}
 
 function detailsScreen() {
   return (
@@ -37,8 +54,6 @@ function detailsScreen() {
   );
 }
 
-const Stack = createStackNavigator();
-
 export default function App() {
   console.log("HI");
   return (
@@ -47,7 +62,12 @@ export default function App() {
         screenOptions={{
           headerStyle: {
             backgroundColor: blueColor,
+            elevation: 0,
           },
+          headerTitleStyle: {
+            alignSelf: "center"
+          },
+          headerTintColor: '#fff'
         }}
       >
         <Stack.Screen name="NOT Schrödinger's Box" component={homeScreen} /> 
