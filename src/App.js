@@ -3,7 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { styles } from "../stylesheets/appStyles.js";
+// import { styles } from "../stylesheets/appStyles.js";
+
+const blueColor = '#10D5D6';
 
 function homeScreen({ navigation }) { 
   return (
@@ -18,6 +20,15 @@ function homeScreen({ navigation }) {
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: blueColor,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+
 function detailsScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -29,12 +40,19 @@ function detailsScreen() {
 const Stack = createStackNavigator();
 
 export default function App() {
+  console.log("HI");
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={homeScreen} /> 
+       <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: blueColor,
+          },
+        }}
+      >
+        <Stack.Screen name="NOT Schrödinger's Box" component={homeScreen} /> 
         <Stack.Screen name="details" component={detailsScreen} /> 
-      </Stack.Navigator> 
+      </Stack.Navigator>
     </NavigationContainer>
   )
 
