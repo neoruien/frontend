@@ -24,7 +24,7 @@ export default function homeScreen({ navigation }) {
 
       {/* Add a box button */}
       <View style={styles.topContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('details')} style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate('Add box')} style={styles.button}>
           <Text style={styles.buttonText}>Add a box</Text>
         </TouchableOpacity>
       </View>
@@ -34,7 +34,7 @@ export default function homeScreen({ navigation }) {
         <Text style={styles.pageContainerTitle}>My Boxes</Text>
         <FlatList
           data={DATA}
-          renderItem={renderItem}
+          renderItem={(item) => renderItem(item, navigation)}
           keyExtractor={(item) => item.id}
         />
       </View>
