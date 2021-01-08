@@ -1,14 +1,7 @@
+import item from "../src/models/item";
+
 export default DATA = [
-  {
-    id: '1',
-    itemText: 'item A',
-  },
-  {
-    id: '2',
-    itemText:   'item B',
-  },
-  {
-    id: '3',
-    itemText: 'item C',
-  },
+  new item(1, 'item A'),
+  new item(2, 'item B'),
+  new item(3, 'item C'),
 ]

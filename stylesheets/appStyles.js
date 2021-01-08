@@ -61,6 +61,21 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     paddingBottom: 5
   },
+  formFieldContainer: {
+    flexDirection: 'row',
+    padding: 5,
+  },
+  formFieldText: {
+    color: blueColor,
+    flex : 2, 
+    opacity: 10 ,
+    fontWeight: "bold",
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#fff',
+    paddingHorizontal: 5,
+    elevation: 2,
+  },
   card: {
     marginVertical: 10,
   },

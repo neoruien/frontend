@@ -1,0 +1,21 @@
+{
+  {
+    "id" : "1",
+    "name" : "Box A",
+    "location" : "living room",
+    "items" : [],
+  },
+  {
+    "id" : "2",
+    "name" : "Box B",
+    "location" : "Kitchen",
+    "items" : [],
+  },
+  {
+    "id" : "3",
+    "name" : "Box C",
+    "location" : "Guest Room",
+    "items" : [],
+  },
+
+}
