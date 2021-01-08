@@ -34,7 +34,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({ color }) => (
-            <Icon name="search" color={color} size={26} />
+            <Icon name="find" color={color} size={26} />
           ),
         }}
       />
