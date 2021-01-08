@@ -1,14 +1,17 @@
 export default DATA = [
   {
     id: '1',
-    itemText: 'item A',
+    imageuri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg',
+    itemText: 'Item A',
   },
   {
     id: '2',
-    itemText:   'item B',
+    imageuri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg',
+    itemText:   'Item B',
   },
   {
     id: '3',
-    itemText: 'item C',
+    imageuri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg',
+    itemText: 'Item C',
   },
 ]

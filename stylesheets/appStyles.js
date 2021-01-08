@@ -63,6 +63,7 @@ export const styles = StyleSheet.create({
   },
   card: {
     marginVertical: 10,
+    flexDirection: "row"
   },
   cardText: {
     color: blueColor,
@@ -84,4 +85,9 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
+  image: {
+    height: 50,
+    width: 50,
+    marginRight: 10
+  }
 });

@@ -1,12 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import { styles } from "../../stylesheets/appStyles.js";
 import DATA  from "../../data/dummyItemData.js";
 
 const Item = ({ item, onPress, style, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.id })} style={[styles.item, style]}>
-    <Text style={styles.title}> {item.itemText} </Text>
+  <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.id })} style={[styles.card, style]}>
+    <Image
+        style={styles.image}
+        source={require("../../assets/Bag.jpg")}
+      />
+    <Text style={styles.cardText}> {item.itemText} </Text>
   </TouchableOpacity>
 );
 
@@ -29,7 +33,7 @@ export default function homeScreen({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      {/* My Boxes container */}
+      {/* My Items container */}
       <View style={styles.pageContainer}>
         <Text style={styles.pageContainerTitle}>My Items</Text>
         <FlatList

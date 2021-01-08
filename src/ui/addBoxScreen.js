@@ -18,7 +18,7 @@ export default function addBoxScreen({ navigation }) {
       </View>
       
       {/* Done button */}
-      <TouchableOpacity onPress={() => navigation.navigate('Add box')} style={styles.button}>
+      <TouchableOpacity onPress={() => navigation.navigate('Box data')} style={styles.button}>
         <Text style={styles.buttonText}>Done</Text>
       </TouchableOpacity>
       
