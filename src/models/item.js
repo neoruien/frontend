@@ -1,7 +1,9 @@
 export default class item { 
-  constructor(id, name, imageUri) { 
+  constructor(id, name, description, location, imageUri) { 
     this.id = id;
     this.name = name;
+    this.description = description;
+    this.location = location
     this.imageUri = imageUri
   }
 
@@ -11,5 +13,13 @@ export default class item {
 
   getName() { 
     return this.name;
+  }
+
+  getDescription() { 
+    return this.description;
+  }
+
+  getLocation() { 
+    return this.location;
   }
 }
