@@ -11,7 +11,7 @@ export default function addItemScreen({ navigation }) {
         source={require("../../assets/Bag.jpg")}
       />
 
-      {/* Add a box button */}
+      {/* Take photo button */}
       <TouchableOpacity onPress={() => navigation.navigate('Confirm add an item')} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Take photo</Text>
       </TouchableOpacity>
