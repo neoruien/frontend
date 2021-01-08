@@ -28,7 +28,7 @@ export default function homeScreen({ navigation }) {
 
       {/* Add a box button */}
       <View style={styles.topContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Add item')} style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate('Add an item')} style={styles.button}>
           <Text style={styles.buttonText}>Add an item</Text>
         </TouchableOpacity>
       </View>

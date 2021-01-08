@@ -75,6 +75,15 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10
   },
+  buttonBorder: {
+    borderColor: blueColor,
+    borderWidth: 3,
+    marginTop: 20,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10
+  },
   buttonText: {
     color: blueColor,
     fontSize: 20,
@@ -89,5 +98,10 @@ export const styles = StyleSheet.create({
     height: 50,
     width: 50,
     marginRight: 10
+  },
+  bigimage: {
+    height: 300,
+    width: 300,
+    alignSelf: "center"
   }
 });
