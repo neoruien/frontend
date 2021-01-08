@@ -9,24 +9,25 @@ import DATA  from "../../data/dummyBoxData.js";
 
 const Item = ({ item, onPress, style, navigation }) => (
   <TouchableOpacity onPress={() => navigation.navigate("box", { itemId: item.id })} style={[styles.item, style]}>
-    <Text style={styles.title}> {item.title} </Text>
+    <Text style={styles.title}> {item.boxText} </Text>
   </TouchableOpacity>
 );
 
-const renderItem = ({ item }, navigation ) => {
+const renderItem = ({ item }, navigation) => {
+  console.log(item)
   return (<Item item={item} navigation={navigation}/>);
 };
 
 export default function homeScreen({ navigation }) { 
   return (
     <View style={styles.container}>
+      <StatusBar style="auto" />
       <Button title = 'Add box' onPress={() => navigation.navigate('Add box')} />
       <FlatList
         data={DATA}
         renderItem={(item) => renderItem(item, navigation)}
         keyExtractor={(item) => item.id}
       />
-      <StatusBar style="auto" />
     </View>
   );
 }
