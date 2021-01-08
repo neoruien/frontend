@@ -4,27 +4,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { styles } from "../stylesheets/appStyles.js";
-
-function homeScreen({ navigation }) { 
-  return (
-    <View style={styles.container}>
-      <Button
-        title = 'Add box'
-        onPress={() => navigation.navigate('details')}
-      />
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-function detailsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
-  );
-}
+import homeScreen from "./ui/homeScreen.js";
+import detailsScreen from "./ui/addBoxScreen.js"
 
 const Stack = createStackNavigator();
 
@@ -33,10 +14,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={homeScreen} /> 
-        <Stack.Screen name="details" component={detailsScreen} /> 
+        <Stack.Screen name="Add box" component={detailsScreen} /> 
       </Stack.Navigator> 
     </NavigationContainer>
   )
-
 }
 
