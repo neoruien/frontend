@@ -5,9 +5,7 @@ const screenOptions = {
       backgroundColor: blueColor,
       elevation: 0,
     },
-    headerTitleStyle: {
-      alignSelf: "center"
-    },
+    headerTitleAlign: 'center',
     headerTintColor: '#fff'
 }
   

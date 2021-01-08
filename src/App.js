@@ -9,6 +9,7 @@ import { screenOptions } from "../constants/AppConstants";
 const Stack = createStackNavigator();
 
 export default function App() {
+  console.log("Hi");
   return (
     <NavigationContainer>
        <Stack.Navigator screenOptions={ screenOptions }>

@@ -45,12 +45,28 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+  formContainer: {
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    margin: 20,
+    height: '50%',
+    width: '90%',
+    backgroundColor: 'white',
+    alignSelf: 'center'
+  },
+  formText: {
+    color: blueColor,
+    fontWeight: "bold",
+    fontSize: 20,
+    paddingBottom: 5
+  },
   card: {
     marginVertical: 10,
   },
   cardText: {
     color: blueColor,
-    fontSize: 25
+    fontSize: 22
   },
   button: {
     backgroundColor: "#fff",
