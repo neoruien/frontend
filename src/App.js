@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Card, Avatar, IconButton } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const blueColor = '#10D5D6';
+const lightBlueColor = '#CFF7F7'
+
+const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -13,22 +16,30 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  box: {
-    width: '50%',
+  pageContainerTitle: {
+    color: blueColor,
+    fontWeight: "bold",
+    fontSize: 20,
+    borderBottomColor: lightBlueColor,
+    borderBottomWidth: 5,
+    paddingBottom: 5
+  },
+  pageContainer: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginTop: 20,
     height: '50%',
-    padding: 5
-  },
-  inner: {
-    flex: 1,
-    backgroundColor: '#eee',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  textInput: {
     width: '90%',
-    height: 50,
-    borderColor: 'black',
-    borderWidth: 2,
+    backgroundColor: 'white',
+    alignSelf: 'center',
+  },
+  card: {
+    backgroundColor: 'pink',
+  },
+  cardText: {
+    color: blueColor
   },
   button: {
     backgroundColor: "#fff",
@@ -46,85 +57,40 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
-  title: {
-    fontSize: 25,
-    color: blueColor
-  },
-  containerTitle: {
-    color: blueColor,
-    fontWeight: "bold",
-    fontSize: 20
-  },
-  pageContainer: {
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginTop: 20,
-    height: '50%',
-    width: '90%',
-    backgroundColor: 'white',
-    alignSelf: 'center',
-  },
 });
-
-const Stack = createStackNavigator();
 
 const DATA = [
   {
     id: '1',
-    title: 'Box A',
+    boxText: 'Box A',
   },
   {
     id: '2',
-    title: 'Box B',
+    boxText: 'Box B',
   },
   {
     id: '3',
-    title: 'Box C',
+    boxText: 'Box C',
   },
 ];
 
-const Item = ({ item, onPress, style }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-    <Text style={styles.title}>{item.title}</Text>
-  </TouchableOpacity>
-);
-
 function homeScreen({ navigation }) { 
-
-  const [selectedId, setSelectedId] = useState(null);
-
-  const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "black" : "#fff";
-
-    return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.id)}
-        style={{ backgroundColor }}
-      />
-    );
-  };
 
   return (
     <View style={styles.mainContainer}>
       
+      {/* StatusBar */}
+      <StatusBar style="auto" />
+
+      {/* Add a box button */}
       <TouchableOpacity onPress={() => navigation.navigate('details')} style={styles.button}>
         <Text style={styles.buttonText}>Add a box</Text>
       </TouchableOpacity>
 
+      {/* My Boxes container */}
       <View style={styles.pageContainer}>
-        <Text style={styles.containerTitle}>My Boxes</Text>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          extraData={selectedId}
-        />
+        <Text style={styles.pageContainerTitle}>My Boxes</Text>
       </View>
-      
-      <StatusBar style="auto" />
 
     </View>
   );
