@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { styles } from "../../stylesheets/appStyles.js";
 
-export default function addBoxScreen({ navigation }) { 
+export default function addItemScreen({ navigation }) { 
   return (
     <View style={styles.container}>
-      <Text>addItem</Text>
-      <StatusBar style="auto" />
+      <Image
+        style={styles.bigimage}
+        source={require("../../assets/Bag.jpg")}
+      />
+
+      {/* Take photo button */}
+      <TouchableOpacity onPress={() => navigation.navigate('Confirm add an item')} style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>Take photo</Text>
+      </TouchableOpacity>
+
     </View>
   );
 }

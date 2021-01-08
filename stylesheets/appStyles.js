@@ -36,10 +36,32 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignSelf: 'center',
   },
+  shortPageContainer: {
+    position: 'absolute',
+    bottom: 0,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginTop: 20,
+    height: '40%',
+    width: '90%',
+    backgroundColor: 'white',
+    alignSelf: 'center',
+  },
   topContainer: {
     position: "absolute",
     top: 0,
     height: '20%',
+    width: '90%',
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  tallTopContainer: {
+    position: "absolute",
+    top: 0,
+    height: '60%',
     width: '90%',
     flex: 1,
     justifyContent: "center",
@@ -78,6 +100,7 @@ export const styles = StyleSheet.create({
   },
   card: {
     marginVertical: 10,
+    flexDirection: "row"
   },
   cardText: {
     color: blueColor,
@@ -89,6 +112,16 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10
   },
+  buttonBorder: {
+    borderColor: blueColor,
+    borderWidth: 3,
+    marginTop: 20,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignSelf: "center"
+  },
   buttonText: {
     color: blueColor,
     fontSize: 20,
@@ -99,4 +132,14 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
     marginHorizontal: 16,
   },
+  image: {
+    height: 50,
+    width: 50,
+    marginRight: 10
+  },
+  bigimage: {
+    height: 300,
+    width: 300,
+    alignSelf: "center"
+  }
 });
