@@ -24,7 +24,6 @@ export default function qRCodeScanner({ navigation }) {
         onBarCodeScanned={scanned ? undefined : (data) => handleBarCodeScanned(data, navigation)}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
     </View>
   );
 }

@@ -10,26 +10,28 @@ import FormFields from "./FormField.js"
 function createNewItem(serialNum, name, description, box, image, navigation) { 
   const newItem = new item(serialNum, name, description, box, image);
   // push to database
-  // fetch('https://mywebsite.com/endpoint/', {
-  //   method: 'POST',
-  //   headers: {
-  //     Accept: 'application/json',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     serialNum: serialNum ,
-  //     name: name,
-  //     location: location,
-  //     items: []
-  //   })
-  // }).then((response) => response.json())
-  //   .then((json) => {
-  //     return json.Result;
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-  //data.push(newBox);
+  fetch('http://192.168.43.32:12345/frontend', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Content-Length': 105,
+    },
+    body: JSON.stringify({
+      serial_no: serialNum ,
+      location : box,
+      name: name,
+      count: 1,
+    })
+  }).then((response) => {
+    return response.json()
+  }).then((json) => {
+      console.log(json);
+      return json.Result;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   navigation.replace('Item data', {item : newItem});
 }
 
@@ -42,7 +44,6 @@ export default function confirmAddItemScreen({ navigation, route }) {
       <View style={styles.tallTopContainer}>
         <Image
             style={styles.bigimage}
-            source={{uri: route.params.image}}
         />
       </View>
 
@@ -58,7 +59,6 @@ export default function confirmAddItemScreen({ navigation, route }) {
           <Text style={styles.buttonText}>Done</Text>
         </TouchableOpacity>
       </View>
-
     </View>
   );
 }

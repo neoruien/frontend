@@ -9,6 +9,8 @@ import {
 import { Camera } from "expo-camera";
 import { Video } from "expo-av";
 import { blueColor } from "../../constants/AppConstants.js";
+import * as FileSystem from 'expo-file-system';
+import react from "react";
 
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
@@ -64,11 +66,14 @@ export default function App({navigation}) {
       if (source) {
         await cameraRef.current.pausePreview();
         setIsPreview(true);
-        console.log("picture source", source);
         singleton.setImageUri(source);
       }
     }
   };
+
+  const base64 = async () => {
+    return await FileSystem.readAsStringAsync(singleton.getImageUri(), { encoding: 'base64' });
+  }
 
   const switchCamera = () => {
     if (isPreview) {
@@ -92,12 +97,34 @@ export default function App({navigation}) {
         <Text style={styles.buttonText}>Retake</Text>
     </TouchableOpacity>
   )
+  
+  const send = (json, method) => { 
+    return fetch('http://192.168.43.32:12345/frontend', {
+      method: method,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Content-Length': 105,
+      },
+      body: json
+    })
+  }
 
-  const renderDoneButton = () => (
-    <TouchableOpacity onPress={() => navigation.replace('Confirm add an item', {image : singleton.getImageUri()})} style={styles.button}>
+  const sendImg = (img) => {
+    base64().then(str => { console.log(str); return JSON.stringify({ type: 1, image: str }) }).then(json => send(json, 'POST'))
+  }
+
+  const renderDoneButton = () => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.replace('Confirm add an item');
+          sendImg(singleton.getImageUri());
+        }} style={styles.button}>
         <Text style={styles.buttonText}>Done</Text>
-    </TouchableOpacity>
-  )
+      </TouchableOpacity>
+    )
+  }
 
   const renderVideoPlayer = () => (
     <Video
