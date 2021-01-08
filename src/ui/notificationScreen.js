@@ -12,7 +12,7 @@ export default function notificationScreen({ navigation }) {
       <StatusBar style="auto" />
 
       {/* Actions container */}
-      <View style={styles.pageContainer}>
+      <View style={styles.tallPageContainer}>
         <Text style={styles.pageContainerTitle}>Actions</Text>
         <Text>Bag is added into Box A</Text>
         <Text>Box A opens</Text>

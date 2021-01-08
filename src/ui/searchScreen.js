@@ -12,7 +12,7 @@ export default function searchScreen({ navigation }) {
       <StatusBar style="auto" />
 
       {/* Search container */}
-      <View style={styles.pageContainer}>
+      <View style={styles.tallPageContainer}>
         <Text style={styles.pageContainerTitle}>Search</Text>
       </View>
 
