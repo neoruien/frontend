@@ -36,10 +36,32 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignSelf: 'center',
   },
+  shortPageContainer: {
+    position: 'absolute',
+    bottom: 0,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginTop: 20,
+    height: '40%',
+    width: '90%',
+    backgroundColor: 'white',
+    alignSelf: 'center',
+  },
   topContainer: {
     position: "absolute",
     top: 0,
     height: '20%',
+    width: '90%',
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  tallTopContainer: {
+    position: "absolute",
+    top: 0,
+    height: '60%',
     width: '90%',
     flex: 1,
     justifyContent: "center",
@@ -82,7 +104,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderRadius: 10
+    borderRadius: 10,
+    alignSelf: "center"
   },
   buttonText: {
     color: blueColor,
