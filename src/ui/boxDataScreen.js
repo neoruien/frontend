@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import { styles } from "../../stylesheets/appStyles.js";
-import DATA  from "../../data/dummyItemData.js";
+import item from '../models/item.js';
 
 const Item = ({ item, onPress, style, navigation }) => (
   <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.getId() })} style={[styles.card, style]}>
@@ -18,8 +18,36 @@ const renderItem = ({ item }, navigation) => {
   return (<Item item={item} navigation={navigation}/>);
 };
 
-export default function boxDataScreen({ route, navigation }) { 
+function getDataFromSever() {
+  return (fetch('http://192.168.43.32:12345/frontend', {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Content-Length': 105,
+    },
+    body: JSON.stringify({
+      key: 'key',
+      type: 1
+    })
+  }).then((response) => {
+    return response.json()
+  }).then((json) => {
+      console.log(json.result)
+      return json.result;
+  }).catch((error) => {
+      console.error(error);
+  }));
+}
 
+function getItems() { 
+  const rawData = getDataFromSever();
+  console.log(rawData);
+  // return rawData.map((rawData) -> new item()
+}
+
+export default function boxDataScreen({ route, navigation }) { 
+  const items = getItems();
   return (
     <View style={styles.mainContainer}>
       
