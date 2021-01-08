@@ -7,6 +7,7 @@ import boxDataScreen from "./ui/boxDataScreen.js";
 import itemDataScreen from "./ui/itemDataScreen";
 import addItemScreen from "./ui/addItemScreen";
 import confirmAddItemScreen from "./ui/confirmAddItemScreen";
+import QRCodeScanner from "./logic/QRCodeScanner.js"
 import { screenOptions } from "../constants/AppConstants";
 
 const Stack = createStackNavigator();
@@ -20,7 +21,8 @@ export default function App() {
         <Stack.Screen name="Box data" component={boxDataScreen} />
         <Stack.Screen name="Item data" component={itemDataScreen} />
         <Stack.Screen name="Add an item" component={addItemScreen}/>
-        <Stack.Screen name="Confirm add an item" component={confirmAddItemScreen}/>
+        <Stack.Screen name="Confirm add an item" component={confirmAddItemScreen} />
+        <Stack.Screen name="QR" component={QRCodeScanner}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
