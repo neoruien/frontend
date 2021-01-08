@@ -5,15 +5,36 @@ import {
   View,
   Text,
   TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
 import { Camera } from "expo-camera";
 import { Video } from "expo-av";
 import { blueColor } from "../../constants/AppConstants.js";
-import { CameraRoll, saveToCameraRoll } from "@react-native-community/cameraroll";
 
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
+
+class Singleton {
+  static myInstance = null;
+
+  _imageUri = "";
+    static getInstance() {
+        if (Singleton.myInstance == null) {
+            Singleton.myInstance = new Singleton();
+        }
+
+        return this.myInstance;
+    }
+
+    getImageUri() {
+        return this._imageUri;
+    }
+
+    setImageUri(id) {
+        this._imageUri = id;
+    }
+}
+
+let singleton = Singleton.getInstance();
 
 export default function App({navigation}) {
   const [hasPermission, setHasPermission] = useState(null);
@@ -44,6 +65,7 @@ export default function App({navigation}) {
         await cameraRef.current.pausePreview();
         setIsPreview(true);
         console.log("picture source", source);
+        singleton.setImageUri(source);
       }
     }
   };
@@ -72,7 +94,7 @@ export default function App({navigation}) {
   )
 
   const renderDoneButton = () => (
-    <TouchableOpacity onPress={() => navigation.replace('Confirm add an item', {image : videoSource})} style={styles.button}>
+    <TouchableOpacity onPress={() => navigation.replace('Confirm add an item', {image : singleton.getImageUri()})} style={styles.button}>
         <Text style={styles.buttonText}>Done</Text>
     </TouchableOpacity>
   )
