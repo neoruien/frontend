@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
+import ACTIONS from '../../data/actionData.js';
 import { styles } from "../../stylesheets/appStyles.js";
+import action from '../models/action.js';
 import item from "../models/item.js"
 import FormFields from "./FormField.js"
 
@@ -49,7 +51,10 @@ export default function confirmAddItemScreen({ navigation, route }) {
         <FormField fieldName={'Name: '} onChangeText={text => setName(text)} />
         <FormField fieldName={'Description: '} onChangeText={text => setDescription(text)} />
         <FormField fieldName={'Box to add to: '} onChangeText={text => setBox(text)} />
-        <TouchableOpacity onPress={() => createNewItem(1, name, description, box, " ", navigation)} style={styles.buttonBorder}>
+        <TouchableOpacity onPress={() => {
+          ACTIONS.push(new action(name + " is added to " + box));
+          createNewItem(1, name, description, box, " ", navigation);
+        }} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Done</Text>
         </TouchableOpacity>
       </View>
