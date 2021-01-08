@@ -1,9 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Card, Avatar, IconButton } from 'react-native';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { styles } from "../stylesheets/appStyles.js";
 import homeScreen from "./ui/homeScreen.js";
 import addBoxScreen from "./ui/addBoxScreen.js"
 import boxNavigationScreen from "./ui/boxNavigationScreen.js"
@@ -22,4 +19,3 @@ export default function App() {
     </NavigationContainer>
   )
 }
-

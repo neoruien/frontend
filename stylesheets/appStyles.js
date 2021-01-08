@@ -24,21 +24,33 @@ export const styles = StyleSheet.create({
     paddingBottom: 5
   },
   pageContainer: {
+    position: 'absolute',
+    bottom: 0,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginTop: 20,
-    height: '50%',
+    height: '80%',
     width: '90%',
     backgroundColor: 'white',
     alignSelf: 'center',
   },
+  topContainer: {
+    position: "absolute",
+    top: 0,
+    height: '20%',
+    width: '90%',
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   card: {
-    backgroundColor: 'pink',
+    marginVertical: 10,
   },
   cardText: {
-    color: blueColor
+    color: blueColor,
+    fontSize: 25
   },
   button: {
     backgroundColor: "#fff",
