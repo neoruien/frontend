@@ -6,9 +6,10 @@ import notificationScreen from "../ui/notificationScreen.js";
 import searchScreen from "../ui/searchScreen.js";
 import addBoxScreen from "../ui/addBoxScreen.js";
 import boxDataScreen from "../ui/boxDataScreen.js";
-import itemDataScreen from "../ui/itemDataScreen";
-import addItemScreen from "../ui/addItemScreen";
-import confirmAddItemScreen from "../ui/confirmAddItemScreen";
+import itemDataScreen from "../ui/itemDataScreen.js";
+import addItemScreen from "../ui/addItemScreen.js";
+import confirmAddItemScreen from "../ui/confirmAddItemScreen.js";
+import QRCodeScanner from "../logic/QRCodeScanner.js"
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const HomeStackNavigator = () => {
         <Stack.Screen name="Item data" component={itemDataScreen} />
         <Stack.Screen name="Add an item" component={addItemScreen}/>
         <Stack.Screen name="Confirm add an item" component={confirmAddItemScreen}/>
+        <Stack.Screen name="QR" component={QRCodeScanner}/>
     </Stack.Navigator>
   );
 };
