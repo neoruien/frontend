@@ -3,13 +3,14 @@ import React from 'react';
 import { Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
 import { styles } from "../../stylesheets/appStyles.js";
 
-export default function confirmAddItemScreen({ navigation }) { 
+export default function confirmAddItemScreen({ navigation, route }) { 
+  console.log(route.params.image)
   return (
     <View style={styles.mainContainer}>
       <View style={styles.tallTopContainer}>
         <Image
             style={styles.bigimage}
-            source={require("../../assets/Bag.jpg")}
+            uri={route.params.image}
         />
       </View>
 
