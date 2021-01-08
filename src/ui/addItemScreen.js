@@ -10,7 +10,7 @@ import {
 import { Camera } from "expo-camera";
 import { Video } from "expo-av";
 import { blueColor } from "../../constants/AppConstants.js";
-import Icon from 'react-native-vector-icons/Ionicons';
+import { CameraRoll, saveToCameraRoll } from "@react-native-community/cameraroll";
 
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
@@ -130,9 +130,9 @@ export default function App({navigation}) {
       <View style={styles.utilityContainer}>
         {isVideoRecording && renderVideoRecordIndicator()}
         {videoSource && renderVideoPlayer()}
+        {!videoSource && !isPreview && renderCaptureControl()}
         {isPreview && renderCancelPreviewButton()}
         {isPreview && renderDoneButton()}
-        {!videoSource && !isPreview && renderCaptureControl()}
       </View>
     </View>
   );
