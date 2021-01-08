@@ -4,51 +4,29 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
 import { styles } from "../../stylesheets/appStyles.js";
-import DATA  from "../../data/dummyBoxData.js";
 import boxDataScreen from "./boxDataScreen.js"
+import DATA  from "../../data/dummyBoxData.js";
 
-const Item = ({ item, onPress, style }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-    <Text style={styles.title}>{item.title}</Text>
+const Item = ({ item, onPress, style, navigation }) => (
+  <TouchableOpacity onPress={() => navigation.navigate("box", { itemId: item.id })} style={[styles.item, style]}>
+    <Text style={styles.title}> {item.title} </Text>
   </TouchableOpacity>
 );
 
-const renderItem = ({ item, navigation }) => {
-
-  return (
-    <Item
-      item={item}
-      onPress={() => navigation.navigate('See box', {itemId : item.id})}
-    />
-  );
+const renderItem = ({ item }, navigation ) => {
+  return (<Item item={item} navigation={navigation}/>);
 };
-
-const Stack = createStackNavigator();
 
 export default function homeScreen({ navigation }) { 
   return (
     <View style={styles.container}>
-      <Button
-        title = 'Add box'
-        onPress={() => navigation.navigate('Add box')}
-      />
+      <Button title = 'Add box' onPress={() => navigation.navigate('Add box')} />
       <FlatList
         data={DATA}
-        renderItem={renderItem}
+        renderItem={(item) => renderItem(item, navigation)}
         keyExtractor={(item) => item.id}
       />
       <StatusBar style="auto" />
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: blueColor,
-            },
-          }}
-        >
-          <Stack.Screen name="See box" component={boxDataScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
     </View>
   );
 }
