@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -11,7 +10,6 @@ import confirmAddItemScreen from "./ui/confirmAddItemScreen";
 import QRCodeScanner from "./logic/QRCodeScanner.js"
 import { screenOptions } from "../constants/AppConstants";
 import BottomTabNavigator from "./navigation/tabNavigator.js";
->>>>>>> 409e5ad126e82ea6ecb726f35b8f12efeba7b8d0
 
 const App = () => {
   return (
