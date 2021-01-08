@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { lightBlueColor, blueColor } from '../src/constants/AppConstants.js'
+import { lightBlueColor, blueColor } from '../constants/AppConstants.js'
 
 /** Stylesheet for App.js */
 export const styles = StyleSheet.create({

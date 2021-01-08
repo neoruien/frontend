@@ -6,7 +6,7 @@ import { styles } from "../../stylesheets/appStyles.js";
 export default function boxDataScreen({ route, navigation }) { 
   return (
     <View style={styles.container}>
-      <Text>box { route.params.itemId  } </Text>
+      <Text>box </Text>
       <StatusBar style="auto" />
     </View>
   );
