@@ -5,12 +5,12 @@ import { styles } from "../../stylesheets/appStyles.js";
 import DATA  from "../../data/dummyItemData.js";
 
 const Item = ({ item, onPress, style, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.id })} style={[styles.card, style]}>
+  <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.getId() })} style={[styles.card, style]}>
     <Image
         style={styles.image}
         source={require("../../assets/Bag.jpg")}
       />
-    <Text style={styles.cardText}> {item.itemText} </Text>
+    <Text style={styles.cardText}> {item.getName()} </Text>
   </TouchableOpacity>
 );
 
@@ -18,7 +18,7 @@ const renderItem = ({ item }, navigation) => {
   return (<Item item={item} navigation={navigation}/>);
 };
 
-export default function homeScreen({ navigation }) { 
+export default function boxDataScreen({ route, navigation }) { 
 
   return (
     <View style={styles.mainContainer}>
@@ -35,11 +35,11 @@ export default function homeScreen({ navigation }) {
 
       {/* My Items container */}
       <View style={styles.pageContainer}>
-        <Text style={styles.pageContainerTitle}>My Items</Text>
+        <Text style={styles.pageContainerTitle}>My Items in { route.params.boxName }</Text>
         <FlatList
           data={DATA}
           renderItem={(item) => renderItem(item, navigation)}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.getId().toString()}
         />
       </View>
 

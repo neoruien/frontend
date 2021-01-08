@@ -5,8 +5,8 @@ import { styles } from "../../stylesheets/appStyles.js";
 import DATA  from "../../data/dummyBoxData.js";
 
 const Item = ({ item, onPress, style, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate("Box data", { itemId: item.id })} style={[styles.card, style]}>
-    <Text style={styles.cardText}> {item.boxText} </Text>
+  <TouchableOpacity onPress={() => navigation.navigate("Box data", { boxName: item.getName() })} style={[styles.card, style]}>
+    <Text style={styles.cardText}> {item.getName()} </Text>
   </TouchableOpacity>
 );
 
@@ -24,7 +24,7 @@ export default function homeScreen({ navigation }) {
 
       {/* Add a box button */}
       <View style={styles.topContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Add a box')} style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate('Add a box', {data: DATA})} style={styles.button}>
           <Text style={styles.buttonText}>Add a box</Text>
         </TouchableOpacity>
       </View>
@@ -35,7 +35,7 @@ export default function homeScreen({ navigation }) {
         <FlatList
           data={DATA}
           renderItem={(item) => renderItem(item, navigation)}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.getId().toString()}
         />
       </View>
 

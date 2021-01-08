@@ -1,17 +1,7 @@
+import item from "../src/models/item";
+
 export default DATA = [
-  {
-    id: '1',
-    imageuri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg',
-    itemText: 'Item A',
-  },
-  {
-    id: '2',
-    imageuri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg',
-    itemText:   'Item B',
-  },
-  {
-    id: '3',
-    imageuri: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg',
-    itemText: 'Item C',
-  },
+  new item(1, 'item A', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg'),
+  new item(2, 'item B', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg'),
+  new item(3, 'item C', 'https://upload.wikimedia.org/wikipedia/commons/8/89/Totebag.jpg'),
 ]
