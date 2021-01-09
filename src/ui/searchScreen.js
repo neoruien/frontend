@@ -24,16 +24,16 @@ export default function searchScreen({ navigation }) {
       </View>
 
       <View style={styles.lockContainer}>
-        <TouchableOpacity onPress={isLocked = true} style={styles.buttonBorder}>
+        <TouchableOpacity onPress={() => isLocked = true} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Lock</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={isLocked = false} style={styles.buttonBorder}>
+        <TouchableOpacity onPress={() => isLocked = false} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Unlock</Text>
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={console.log()} style={styles.buttonBorder}>
+      <TouchableOpacity onPress={() => {if (!isLocked) {console.log("HI")}}} style={styles.buttonBorder}>
         <Text style={styles.buttonText}>Find its location</Text>
       </TouchableOpacity>
 
