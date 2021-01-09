@@ -26,9 +26,7 @@ export const styles = StyleSheet.create({
   searchText: {
     color: blueColor,
     fontSize: 18,
-    opacity: 0.7,
-    borderBottomColor: lightBlueColor,
-    borderBottomWidth: 5,
+    marginTop: 15,
     paddingBottom: 5
   },
   pageContainer: {
