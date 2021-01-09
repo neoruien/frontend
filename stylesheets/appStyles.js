@@ -23,6 +23,14 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 5,
     paddingBottom: 5
   },
+  searchText: {
+    color: blueColor,
+    fontSize: 18,
+    opacity: 0.7,
+    borderBottomColor: lightBlueColor,
+    borderBottomWidth: 5,
+    paddingBottom: 5
+  },
   pageContainer: {
     position: 'absolute',
     bottom: 0,
