@@ -23,11 +23,11 @@ export default function searchScreen({ navigation }) {
         <FormField onChangeText={text => setName(text)} />
 
         <View style={styles.lockContainer}>
-          <TouchableOpacity onPress={() => isLocked = true} style={styles.buttonBorder}>
+          <TouchableOpacity onPress={() => isLocked = true} style={styles.lockButton}>
             <Text style={styles.buttonText}>Lock</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => isLocked = false} style={styles.buttonBorder}>
+          <TouchableOpacity onPress={() => isLocked = false} style={styles.unlockButton}>
             <Text style={styles.buttonText}>Unlock</Text>
           </TouchableOpacity>
         </View>

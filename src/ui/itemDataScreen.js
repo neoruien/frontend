@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import ACTIONS from '../../data/actionData.js';

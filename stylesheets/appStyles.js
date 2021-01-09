@@ -27,7 +27,8 @@ export const styles = StyleSheet.create({
     color: blueColor,
     fontSize: 18,
     marginTop: 15,
-    paddingBottom: 5
+    paddingBottom: 5,
+    fontWeight: "bold"
   },
   pageContainer: {
     position: 'absolute',
@@ -139,6 +140,27 @@ export const styles = StyleSheet.create({
   },
   buttonBorder: {
     borderColor: blueColor,
+    borderWidth: 3,
+    marginTop: 20,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignSelf: "center"
+  },
+  lockButton: {
+    borderColor: '#c00000',
+    borderWidth: 3,
+    marginTop: 20,
+    marginRight: 10,
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignSelf: "center"
+  },
+  unlockButton: {
+    borderColor: '#00b050',
     borderWidth: 3,
     marginTop: 20,
     backgroundColor: "#fff",
