@@ -82,7 +82,8 @@ export default function confirmAddItemScreen({ navigation, route }) {
     <View style={styles.mainContainer}>
       <View style={styles.tallTopContainer}>
         <Image
-            style={styles.bigimage}
+          style={styles.bigimage}
+
         />
       </View>
 
