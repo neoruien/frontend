@@ -5,7 +5,7 @@ import { styles } from "../../stylesheets/appStyles.js";
 import item from '../models/item.js';
 
 const Item = ({ item, onPress, style, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.getId() })} style={[styles.card, style]}>
+  <TouchableOpacity onPress={() => navigation.navigate("Item data", { item: item })} style={[styles.card, style]}>
     <Image
         style={styles.image}
         source={require("../../assets/Bag.jpg")}
@@ -37,7 +37,7 @@ export default function boxDataScreen({ route, navigation }) {
         console.error(error);
     }));
   }
-  React.useEffect(() => getDataFromSever(), []);
+  React.useEffect(() => getDataFromSever(), [itemData]);
   return (
     <View style={styles.mainContainer}>
       

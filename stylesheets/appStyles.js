@@ -23,6 +23,12 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 5,
     paddingBottom: 5
   },
+  searchText: {
+    color: blueColor,
+    fontSize: 18,
+    marginTop: 15,
+    paddingBottom: 5
+  },
   pageContainer: {
     position: 'absolute',
     bottom: 0,
@@ -68,6 +74,11 @@ export const styles = StyleSheet.create({
     height: '20%',
     width: '90%',
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  lockContainer: {
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
   },
