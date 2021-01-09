@@ -8,7 +8,7 @@ const Item = ({ item, onPress, style, navigation }) => (
   <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.getId() })} style={[styles.card, style]}>
     <Image
         style={styles.image}
-        source={require("../../assets/Bag.jpg")}
+        source={require("../../assets/order.png")}
       />
     <Text style={styles.cardText}> {item.getName()} </Text>
   </TouchableOpacity>

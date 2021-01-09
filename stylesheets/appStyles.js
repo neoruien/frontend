@@ -158,8 +158,8 @@ export const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   image: {
-    height: 50,
-    width: 50,
+    height: 35,
+    width: 35,
     marginRight: 10
   },
   bigimage: {

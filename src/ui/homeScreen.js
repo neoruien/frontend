@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native';
 import { styles } from "../../stylesheets/appStyles.js";
 import DATA  from "../../data/dummyBoxData.js";
 
 const Item = ({ item, onPress, style, navigation }) => (
   <TouchableOpacity onPress={() => navigation.navigate("Box data", { boxName: item.getName() })} style={[styles.card, style]}>
+    <Image
+        style={styles.image}
+        source={require("../../assets/box.png")}
+      />
     <Text style={styles.cardText}> {item.getName()} </Text>
   </TouchableOpacity>
 );
