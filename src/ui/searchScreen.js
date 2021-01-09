@@ -21,21 +21,23 @@ export default function searchScreen({ navigation }) {
         <Text style={styles.pageContainerTitle}>Location</Text>
         <Text style={styles.searchText}>Name of item/box:</Text>
         <FormField onChangeText={text => setName(text)} />
+
+        <View style={styles.lockContainer}>
+          <TouchableOpacity onPress={() => isLocked = true} style={styles.buttonBorder}>
+            <Text style={styles.buttonText}>Lock</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => isLocked = false} style={styles.buttonBorder}>
+            <Text style={styles.buttonText}>Unlock</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-      <View style={styles.lockContainer}>
-        <TouchableOpacity onPress={() => isLocked = true} style={styles.buttonBorder}>
-          <Text style={styles.buttonText}>Lock</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => isLocked = false} style={styles.buttonBorder}>
-          <Text style={styles.buttonText}>Unlock</Text>
+      <View>
+        <TouchableOpacity onPress={() => {if (!isLocked) {console.log("HI")}}} style={styles.buttonBorder}>
+          <Text style={styles.buttonText}>Find its location</Text>
         </TouchableOpacity>
       </View>
-
-      <TouchableOpacity onPress={() => {if (!isLocked) {console.log("HI")}}} style={styles.buttonBorder}>
-        <Text style={styles.buttonText}>Find its location</Text>
-      </TouchableOpacity>
 
     </View>
   );
