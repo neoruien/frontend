@@ -16,15 +16,15 @@ import box from '../models/box.js';
     })
   }
 
-  const toggleLock= (lock, locate) => {
-    return send(JSON.stringify({ type: 3, lock: lock, locate: locate }), 'POST').then(response => response.json()).catch(error => { console.log(error) });
+  const toggleLock= (lock, buzzer) => {
+    return send(JSON.stringify({ type: 3, lock: lock, buzzer: buzzer}), 'POST').then(response => response.json()).catch(error => { console.log(error) });
   }
 
 export default function searchScreen({ navigation }) { 
 
   const [value, setName] = React.useState('');
 
-  var isLocked = true;
+  const [isLocked, locking] = React.useState(true);
 
   return (
     <View style={styles.mainContainer}>
@@ -50,7 +50,7 @@ export default function searchScreen({ navigation }) {
       </View>
 
       <View>
-        <TouchableOpacity onPress={() => toggleLock(false,true)} style={styles.buttonBorder}>
+        <TouchableOpacity onPress={() => toggleLock(isLocked, true)} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Find its location</Text>
         </TouchableOpacity>
       </View>
