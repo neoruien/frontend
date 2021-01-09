@@ -5,7 +5,7 @@ import { styles } from "../../stylesheets/appStyles.js";
 import item from '../models/item.js';
 
 const Item = ({ item, onPress, style, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate("Item data", { itemId: item.getId() })} style={[styles.card, style]}>
+  <TouchableOpacity onPress={() => navigation.navigate("Item data", { item: item })} style={[styles.card, style]}>
     <Image
         style={styles.image}
         source={require("../../assets/order.png")}
@@ -18,36 +18,26 @@ const renderItem = ({ item }, navigation) => {
   return (<Item item={item} navigation={navigation}/>);
 };
 
-function getDataFromSever() {
-  return (fetch('http://192.168.43.32:12345/frontend', {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'Content-Length': 105,
-    },
-    body: JSON.stringify({
-      key: 'key',
-      type: 1
-    })
-  }).then((response) => {
-    return response.json()
-  }).then((json) => {
-      console.log(json.result)
-      return json.result;
-  }).catch((error) => {
-      console.error(error);
-  }));
-}
-
-function getItems() { 
-  const rawData = getDataFromSever();
-  console.log(rawData);
-  // return rawData.map((rawData) -> new item()
-}
-
 export default function boxDataScreen({ route, navigation }) { 
-  const items = getItems();
+  const [itemData, setItems] = React.useState([]);
+  function getDataFromSever() {
+    (fetch('http://192.168.43.32:12345/frontend/1', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Content-Length': 105,
+      }
+    }).then((response) => {
+      return response.json()
+    }).then((json) => {
+      let newArray = json.result.map(raw => new item(raw[0], raw[1], " ", raw[3], " "));
+      setItems(newArray);
+    }).catch((error) => {
+        console.error(error);
+    }));
+  }
+  React.useEffect(() => getDataFromSever(), [itemData]);
   return (
     <View style={styles.mainContainer}>
       
@@ -65,9 +55,9 @@ export default function boxDataScreen({ route, navigation }) {
       <View style={styles.pageContainer}>
         <Text style={styles.pageContainerTitle}>My Items in { route.params.boxName }</Text>
         <FlatList
-          data={DATA}
+          data={itemData}
           renderItem={(item) => renderItem(item, navigation)}
-          keyExtractor={(item) => item.getId().toString()}
+          keyExtractor={(item) => item.getId()}
         />
       </View>
 

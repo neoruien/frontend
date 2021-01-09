@@ -7,8 +7,8 @@ import action from '../models/action.js';
 import item from "../models/item.js"
 import FormFields from "./FormField.js"
 
-function createNewItem(serialNum, name, description, box, image, navigation) { 
-  const newItem = new item(serialNum, name, description, box, image);
+function createNewItem(serialNum, name, description, box, navigation) { 
+  const newItem = new item(serialNum, name, description, box);
   // push to database
   fetch('http://192.168.43.32:12345/frontend', {
     method: 'POST',
@@ -18,6 +18,7 @@ function createNewItem(serialNum, name, description, box, image, navigation) {
       'Content-Length': 105,
     },
     body: JSON.stringify({
+      type: 2,
       serial_no: serialNum ,
       location : box,
       name: name,
@@ -27,7 +28,7 @@ function createNewItem(serialNum, name, description, box, image, navigation) {
     return response.json()
   }).then((json) => {
       console.log(json);
-      return json.Result;
+      return json.result;
     })
     .catch((error) => {
       console.error(error);
@@ -35,10 +36,48 @@ function createNewItem(serialNum, name, description, box, image, navigation) {
   navigation.replace('Item data', {item : newItem});
 }
 
+function getSerialNum() { 
+  fetch('http://192.168.43.32:12345/frontend/3', {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Content-Length': 105,
+    }
+  }).then((response) => {
+    return response.json()
+  }).then((json) => {
+      console.log(json.result);
+      return json.result;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 export default function confirmAddItemScreen({ navigation, route }) { 
   const [name, setName] = React.useState('');
   const [description, setDescription] = React.useState('');
   const [box, setBox] = React.useState('');
+  const [serialNumber, setSerialNumber] = React.useState(0);
+
+  function getSerialNum() { 
+    fetch('http://192.168.43.32:12345/frontend/3', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Content-Length': 105,
+      }
+    }).then((response) => {
+      return response.json()
+    }).then((json) => {
+        setSerialNumber(json.result);
+    }).catch((error) => {
+        console.error(error);
+    });
+  }
+  React.useEffect(() => getSerialNum(), []);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.tallTopContainer}>
@@ -54,7 +93,7 @@ export default function confirmAddItemScreen({ navigation, route }) {
         <FormField fieldName={'Box to add to: '} onChangeText={text => setBox(text)} />
         <TouchableOpacity onPress={() => {
           ACTIONS.push(new action(name + " is added to " + box));
-          createNewItem(1, name, description, box, " ", navigation);
+          createNewItem(serialNumber, name, description, box, navigation);
         }} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Done</Text>
         </TouchableOpacity>
