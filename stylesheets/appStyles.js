@@ -77,6 +77,11 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
+  lockContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
   tallTopContainer: {
     position: "absolute",
     top: 0,

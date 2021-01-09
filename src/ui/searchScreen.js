@@ -7,6 +7,7 @@ import box from '../models/box.js';
 export default function searchScreen({ navigation }) { 
 
   const [value, setName] = React.useState('');
+
   var isLocked = true;
 
   return (
@@ -22,11 +23,7 @@ export default function searchScreen({ navigation }) {
         <FormField onChangeText={text => setName(text)} />
       </View>
 
-      <TouchableOpacity onPress={console.log("")} style={styles.buttonBorder}>
-        <Text style={styles.buttonText}>Find its location</Text>
-      </TouchableOpacity>
-
-      <View>
+      <View style={styles.lockContainer}>
         <TouchableOpacity onPress={isLocked = true} style={styles.buttonBorder}>
           <Text style={styles.buttonText}>Lock</Text>
         </TouchableOpacity>
@@ -35,6 +32,10 @@ export default function searchScreen({ navigation }) {
           <Text style={styles.buttonText}>Unlock</Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity onPress={console.log()} style={styles.buttonBorder}>
+        <Text style={styles.buttonText}>Find its location</Text>
+      </TouchableOpacity>
 
     </View>
   );
